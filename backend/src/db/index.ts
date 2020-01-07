@@ -84,6 +84,6 @@ export function deleteOldScheduleRecords(knex: Knex) {
   const weekOldTime = moment().subtract(1, "week");
 
   return knex("schedules")
-    .where("timeCreated", "<", weekOldTime)
+    .where("created_at", "<", weekOldTime)
     .del();
 }
